@@ -147,6 +147,7 @@
     <ClInclude Include="CommandLineAction.h" />
     <ClInclude Include="CommandLineArguments.h" />
     <ClInclude Include="ProgramDefinitions.h" />
+    <ClInclude Include="ProgramStrings.h" />
     <ClInclude Include="VirtualMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

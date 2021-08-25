@@ -14,6 +14,6 @@ class CommandLineArguments
 {
 	public:
 		CommandLineAction Action;
-		std::string IntermediateFilePath;
+		char* IntermediateFilePath;
 
 };

@@ -41,5 +41,8 @@
     <ClInclude Include="CommandLineAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProgramStrings.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ int main()
 
     LPSTR CLA_String = *CommandLineArguments;  // Dereference that pointer
 
-    CommandLineArguments_Parse(CLA_String); 
+    CommandLineArguments CLA = CommandLineArguments_Parse(CLA_String); 
 
 }
 
@@ -83,7 +83,7 @@ CommandLineArguments CommandLineArguments_Parse(LPSTR CLAPointer)
             switch (i)
             {
                 case 1:
-                    CLAA->IntermediateFilePath = CurToken; 
+                    CLAA->IntermediateFilePath = &CurToken; 
 
                 
             }
@@ -93,8 +93,32 @@ CommandLineArguments CommandLineArguments_Parse(LPSTR CLAPointer)
 
     }
 
+    if (CLAA->IntermediateFilePath == NULL)
+    {
+        CLAA->Action = CommandLineAction::DoNothing; 
+    }
+    else
+    {
+        if (strlen(CLAA->IntermediateFilePath) == 0)
+        {
+            CLAA->Action = CommandLineAction::DoNothing;
+        }
+        else
+        {
+            CLAA->Action = CommandLineAction::StandardRun;
+        }
+
+    }
+
+
     return *CLAA; 
 };
+
+void PrintHelpAndExit()
+{
+    
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
