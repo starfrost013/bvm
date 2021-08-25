@@ -10,8 +10,8 @@
 #include <iostream>
 #include <windows.h>
 #include "CommandLineArguments.h"
-#include "VirtualMachine.h"
 #include "ProgramDefinitions.h"
+#include "VirtualMachine.h"
 
 // defines
 
@@ -24,10 +24,9 @@ int main()
 {
     const char* Ver = PROGRAM_VERSION;
 
-    std::cout << "bvm (Brainfuck Virtual Machine)\n";
+    printf_s("bvm (Brainfuck Virtual Machine)\n");
     printf_s("Version %s\n", Ver);
-
-    std::cout << "©2021 starfrost\n";
+    printf_s("©2021 starfrost");
 
     LPSTR* CommandLineArguments = CommandLineArguments_Get(); 
 
@@ -54,19 +53,47 @@ CommandLineArguments CommandLineArguments_Parse(LPSTR CLAPointer)
     std::cout << "\n";
 
 #endif
-    CommandLineArguments CLAA;
+    CommandLineArguments* CLAA = new CommandLineArguments();
 
-    char* Tokens = strtok_s(CLAPointer, ",");
+    char* NextToken = NULL;
+    char* Tokens = strtok_s(CLAPointer, " ", &NextToken);
+    
 
     int i = 0;
 
     while (Tokens != NULL)
     {
-        i++;
+
+        char CurToken = *Tokens;
+
+#ifdef DEBUG
+        printf_s("DEBUG: %c %d\n", CurToken, i);
+#endif
+
+        Tokens = strtok_s(NULL, " ", &NextToken);
+
+        if (Tokens == NULL)
+        {
+            break;
+        }
+        else
+        {
+            i++;
+
+            switch (i)
+            {
+                case 1:
+                    CLAA->IntermediateFilePath = CurToken; 
+
+                
+            }
+        }
+
+       
 
     }
 
-    return CLAA; 
+    return *CLAA; 
 };
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

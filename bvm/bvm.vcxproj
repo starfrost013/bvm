@@ -144,6 +144,7 @@
     <ClCompile Include="VirtualMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandLineAction.h" />
     <ClInclude Include="CommandLineArguments.h" />
     <ClInclude Include="ProgramDefinitions.h" />
     <ClInclude Include="VirtualMachine.h" />
