@@ -10,9 +10,8 @@
 class VirtualMachine
 {
 	public:
-		char Memory[30000];
+		char* Memory;
 		char* Cur;
-
 
 	private:
 

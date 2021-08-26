@@ -11,10 +11,34 @@ namespace bic
     /// 
     /// Defines the launch arguments for the Brainfuck Intermediate Compiler.
     /// </summary>
-    public class LaunchArgs
+    public static class LaunchArgs
     {
-        public string File { get; set; }
+        /// <summary>
+        /// The file to intermediate compile. 
+        /// </summary>
+        public static string File { get; set; }
 
-        public string OutputFile { get; set; }
+        /// <summary>
+        /// The output file 
+        /// </summary>
+        public static string OutputFile { get; set; }
+
+        public static CommandLineAction Action { get;  set; }
+        public static void Parse(string[] Arguments)
+        {
+        
+            switch (Arguments.Length)
+            {
+                case 0:
+                    Action = CommandLineAction.DoNothing;
+                    return; 
+                case 1:
+                case 2:
+                default:
+                    return; // presently do nothing but more args will be added.
+                    
+            }
+               
+        }
     }
 }

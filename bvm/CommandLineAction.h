@@ -1,7 +1,5 @@
-#pragma once
-
 /// <summary>
-/// CommandLineAction
+/// CommandLineAction (bic version)
 /// 
 /// August 24, 2021
 /// 
